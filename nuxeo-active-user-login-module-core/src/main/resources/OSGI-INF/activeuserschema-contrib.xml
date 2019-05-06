@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<component name="com.acme.schemas.user.override.activeuserschema">
+
+  <extension target="org.nuxeo.ecm.core.schema.TypeService" point="schema">
+    <!-- 
+    You might find some help here:
+    https://explorer.nuxeo.com/nuxeo/site/distribution/latest/viewExtensionPoint/org.nuxeo.ecm.core.schema.TypeService%2d%2dschema
+    -->
+	<schema name="user" prefix="user" override="true" src="directoryschema/user.xsd"/>
+  </extension>
+
+</component>

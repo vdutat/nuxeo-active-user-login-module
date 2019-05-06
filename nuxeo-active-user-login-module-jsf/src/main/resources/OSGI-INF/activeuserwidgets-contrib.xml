@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<component name="com.acme.login.jsf.widgets.useractivewidgets">
+
+  <require>org.nuxeo.ecm.platform.forms.layouts.webapp.base</require>
+
+  <extension target="org.nuxeo.ecm.platform.forms.layout.WebLayoutManager" point="widgets">
+    <!-- 
+    You might find some help here:
+    https://explorer.nuxeo.com/nuxeo/site/distribution/latest/viewExtensionPoint/org.nuxeo.ecm.platform.forms.layout.WebLayoutManager%2d%2dwidgets
+    -->
+
+    <widget name="user_active" type="checkbox">
+      <labels>
+        <label mode="any">label.user.active</label>
+      </labels>
+      <translated>true</translated>
+      <fields>
+        <field>user:active</field>
+      </fields>
+        <widgetModes>
+          <mode value="editPassword">hidden</mode>
+          <mode value="edit">#{nxu:test(webActions.checkFilter('usersGroupsManagementAccess'),
+           'edit', 'view')}</mode>
+        </widgetModes>
+        <properties mode="any">
+          <property name="template">
+            /widgets/boolean_radio_widget_template.xhtml
+          </property>
+        </properties>
+    </widget>
+
+    <widget name="user_expired" type="datetime">
+      <labels>
+        <label mode="any">label.user.expired</label>
+      </labels>
+      <translated>true</translated>
+      <fields>
+        <field>user:expired</field>
+      </fields>
+        <widgetModes>
+          <mode value="editPassword">hidden</mode>
+          <mode value="edit">#{nxu:test(webActions.checkFilter('usersGroupsManagementAccess'),
+           'edit', 'view')}</mode>
+        </widgetModes>
+        <properties widgetMode="view">
+          <property name="pattern">#{nxu:basicDateAndTimeFormater()}</property>
+        </properties>
+        <properties widgetMode="edit">
+          <property name="format">#{nxu:basicDateAndTimeFormater()}</property>
+        </properties>
+    </widget>
+
+  </extension>
+
+</component>

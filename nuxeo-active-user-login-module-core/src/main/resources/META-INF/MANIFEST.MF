@@ -1,0 +1,10 @@
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Manifest-Version: 1.0
+Bundle-Vendor: com.acme.login
+Bundle-Version: 1.0.0
+Bundle-Name: nuxeo-active-user-login-module-core
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.acme.login.nuxeo-active-user-login-module-core;singleton=true
+Nuxeo-Component: OSGI-INF/activeuserloginmodule-contrib.xml,
+ OSGI-INF/activeuserschema-contrib.xml

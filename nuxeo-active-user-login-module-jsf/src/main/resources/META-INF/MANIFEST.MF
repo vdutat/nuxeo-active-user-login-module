@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.acme.login.nuxeo-active-user-login-module-jsf
+ ;singleton=true
+Bundle-Version: 1.0.0
+Bundle-Name: nuxeo-active-user-login-module-jsf
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-ManifestVersion: 2
+Bundle-Vendor: com.acme.login
+Nuxeo-Component: OSGI-INF/activeuserwidgets-contrib.xml,OSGI-INF/userl
+ ayout-contrib.xml
+

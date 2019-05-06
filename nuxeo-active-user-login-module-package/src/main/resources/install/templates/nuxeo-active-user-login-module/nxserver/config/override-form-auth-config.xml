@@ -1,0 +1,19 @@
+<component name="com.acme.login.override-form-auth">
+
+  <require>org.nuxeo.ecm.platform.ui.web.auth.defaultConfig</require>
+<!--
+  <require>org.nuxeo.ecm.platform.ui.web.auth.WebEngineConfig</require>
+  <require>org.nuxeo.ecm.platform.login.Portal</require>
+  <require>org.nuxeo.ecm.automation.server.auth.config</require>
+-->
+
+<!-- Override -->
+  <extension target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService" point="authenticators">
+    <authenticationPlugin name="FORM_AUTH">
+      <loginModulePlugin>ACTIVEUSER_LM</loginModulePlugin>
+    </authenticationPlugin>
+  </extension>
+
+
+</component>
+

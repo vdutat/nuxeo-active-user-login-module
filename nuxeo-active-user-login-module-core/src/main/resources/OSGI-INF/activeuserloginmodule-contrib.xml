@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<component name="com.acme.login.activeuserloginmodule">
+
+  <extension target="org.nuxeo.ecm.platform.login.LoginPluginRegistry" point="plugin">
+    <!-- 
+    You might find some help here:
+    https://explorer.nuxeo.com/nuxeo/site/distribution/latest/viewExtensionPoint/org.nuxeo.ecm.platform.login.LoginPluginRegistry%2d%2dplugin
+    -->
+    <LoginPlugin name="ACTIVEUSER_LM" class="com.acme.login.ActiveUserLoginModule">
+      <enabled>true</enabled>
+    </LoginPlugin>
+
+  </extension>
+
+</component>
