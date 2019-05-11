@@ -1,7 +1,7 @@
 # nuxeo-active-user-login-module
 
 This plugin allows to to disable a user or to define a deactivation date and time on a user, the said user won't be able to login anymore.
-2 new fields `active` (`boolean`) and `expired` are added to `user` schema and will be checked at login time to allow or reject the user's login.
+2 new fields `active` (`boolean`) and `expired` (`datetime`) are added to `user` schema and will be checked at login time to allow or reject the user's login.
 Currently, only administration pages for the **JSF UI** are availaable, **Web UI** to come soon.
 
 # Requirements
