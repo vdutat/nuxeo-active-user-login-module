@@ -21,6 +21,7 @@
   </xs:element>
   <xs:element name="active" type="xs:boolean" default="true" />
   <xs:element name="expired" type="xs:date" />
+  <xs:element name="lastlogin" type="xs:date" />
 
   <!-- inverse reference -->
   <xs:element name="groups" type="nxs:stringList" />

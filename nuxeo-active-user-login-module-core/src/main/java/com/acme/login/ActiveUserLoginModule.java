@@ -1,10 +1,12 @@
 package com.acme.login;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.joda.time.DateTime;
 import org.nuxeo.ecm.core.api.DocumentModel;
 import org.nuxeo.ecm.core.api.security.SecurityConstants;
 import org.nuxeo.ecm.platform.api.login.UserIdentificationInfo;
@@ -37,11 +39,13 @@ public class ActiveUserLoginModule extends BaseLoginModule implements LoginPlugi
                 userIdent.getPassword());
         if (SecurityConstants.ADMINISTRATOR.equals(userIdent.getUserName())) {
             if (checkUsernamePassword) {
+                setLastLoginDate(userIdent.getUserName());
                 return userIdent.getUserName();
             }
             return null;
         }
         if (checkUsernamePassword && isUserActive(userIdent.getUserName()) && isUserNotExpired(userIdent.getUserName())) {
+            setLastLoginDate(userIdent.getUserName());
             return userIdent.getUserName();
         }
         LOG.warn("user [" + userIdent.getUserName() + "] is inactive");
@@ -74,5 +78,21 @@ public class ActiveUserLoginModule extends BaseLoginModule implements LoginPlugi
             LOG.debug("<isUserNotExpired> " + userName + " => " + expired);
         }
        return (expired == null || Calendar.getInstance().before(expired));
+    }
+
+    protected void setLastLoginDate(String userName) {
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("<setLastLoginDate> " + userName);
+        }
+        UserManager um = Framework.getService(UserManager.class);
+        DocumentModel userModel = Framework.doPrivileged(() -> um.getUserModel(userName));
+        if (userModel == null) {
+            LOG.error("Document model for user " + userName + " not found.");
+            return;
+        }
+        DateTime dateTime = DateTime.now();
+        Calendar calendar = dateTime.toCalendar(Locale.getDefault());
+        userModel.setPropertyValue("user:lastlogin", calendar);
+        Framework.doPrivileged(() -> um.updateUser(userModel));
     }
 }
