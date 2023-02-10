@@ -7,7 +7,7 @@ Currently, only administration pages for the **JSF UI** are available, **Web UI*
 
 Since **2.0** a new field `lastlogin` has been added to schema `user` to track the date and time of the user's last login.
 
-Since **2.1** field `user:lastlogin` cn be set using a listener instead of a login module.
+Since **2.1** field `user:lastlogin` can be set using a listener instead of a login module.
 
 # Requirements
 
