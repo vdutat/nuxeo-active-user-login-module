@@ -7,4 +7,5 @@ Bundle-Name: nuxeo-active-user-login-module-core
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: com.acme.login.nuxeo-active-user-login-module-core;singleton=true
 Nuxeo-Component: OSGI-INF/activeuserloginmodule-contrib.xml,
- OSGI-INF/activeuserschema-contrib.xml
+ OSGI-INF/activeuserschema-contrib.xml,
+ OSGI-INF/loguserlastloginlistener-listener-contrib.xml

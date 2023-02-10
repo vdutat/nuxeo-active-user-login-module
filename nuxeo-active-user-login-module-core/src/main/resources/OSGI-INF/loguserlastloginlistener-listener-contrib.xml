@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<component name="com.acme.listener.listener.loguserlastloginlistener">
+
+  <extension target="org.nuxeo.ecm.core.event.EventServiceComponent" point="listener">
+    <listener name="loguserlastloginlistener"
+      class="com.acme.listener.LogUserLastLoginListener">
+        <event>loginSuccess</event>
+    </listener>
+  </extension>
+
+</component>

@@ -81,6 +81,10 @@ public class ActiveUserLoginModule extends BaseLoginModule implements LoginPlugi
     }
 
     protected void setLastLoginDate(String userName) {
+        boolean enabled = Boolean.parseBoolean(Framework.getProperty("nuxeo.user.logLastLogin.listener.enabled", "false"));
+        if (enabled) {
+            return;
+        }
         if (LOG.isDebugEnabled()) {
             LOG.debug("<setLastLoginDate> " + userName);
         }
