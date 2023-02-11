@@ -1,5 +1,5 @@
 <component name="com.acme.login.override-form-auth">
-
+<#if ((nuxeo.user.logLastLogin.listener.enabled)!"false") != "true">
   <require>org.nuxeo.ecm.platform.ui.web.auth.defaultConfig</require>
 <!--
   <require>org.nuxeo.ecm.platform.ui.web.auth.WebEngineConfig</require>
@@ -13,7 +13,7 @@
       <loginModulePlugin>ACTIVEUSER_LM</loginModulePlugin>
     </authenticationPlugin>
   </extension>
-
+</#if>
 
 </component>
 
